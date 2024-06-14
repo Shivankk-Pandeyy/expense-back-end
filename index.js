@@ -13,7 +13,7 @@ const product_routes=require("./Routes/Product");
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors({
-    origin: '*',//(https://your-client-app.com)
+    origin: 'http://localhost:5173/',//(https://your-client-app.com)
     methods: ["GET", "POST", "PUT", "DELETE"],
     credential: true,
     optionsSuccessStatus: 200,
