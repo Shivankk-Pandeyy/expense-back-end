@@ -12,7 +12,12 @@ const product_routes=require("./Routes/Product");
 //MIDDLEWARE
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use(cors());
+app.use(cors({
+    origin: '*',//(https://your-client-app.com)
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credential: true,
+    optionsSuccessStatus: 200,
+}));
 //MIDDLEWARE FOR ROUTER
 app.use("/api/expense",product_routes)
 //SERVER
