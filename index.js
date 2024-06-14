@@ -12,8 +12,13 @@ const product_routes=require("./Routes/Product");
 //MIDDLEWARE
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*"); // Allow all domains (not recommended for production)
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: '*',
     methods: ['GET','POST','PUT','DELETE'], // Allow only these methods
     allowedHeaders: ['Content-Type', 'Authorization'] ,
     credentials:true,
