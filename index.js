@@ -28,7 +28,7 @@ app.options('*', (req, res) => {
     res.sendStatus(200);
 });
 app.use(cors({
-    origin: '*',
+    origin: ['http://localhost:5173'],
     methods: ['GET','POST','PUT','DELETE'], // Allow only these methods
     allowedHeaders: ["Origin, X-Requested-With, Content-Type, Accept"] ,
     credentials:true,
