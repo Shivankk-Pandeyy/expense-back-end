@@ -30,7 +30,7 @@ app.options('*', (req, res) => {
 app.use(cors({
     origin: 'http://localhost:5173',
     methods: ['GET','POST','PUT','DELETE'], // Allow only these methods
-    allowedHeaders: ['Content-Type', 'Authorization'] ,
+    allowedHeaders: ['Content-Type', 'Authorization','Origin', 'X-Requested-With', 'Accept'] ,
     credentials:true,
 }));
 //MIDDLEWARE FOR ROUTER
