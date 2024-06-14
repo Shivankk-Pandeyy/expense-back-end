@@ -13,10 +13,9 @@ const product_routes=require("./Routes/Product");
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors({
-    origin: 'http://localhost:5173/',//(https://your-client-app.com)
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credential: true,
-    optionsSuccessStatus: 200,
+    origin: 'http://localhost:5173/',
+    methods: ['GET','POST','PUT','DELETE'], // Allow only these methods
+    allowedHeaders: ['Content-Type', 'Authorization'] 
 }));
 //MIDDLEWARE FOR ROUTER
 app.use("/api/expense",product_routes)
