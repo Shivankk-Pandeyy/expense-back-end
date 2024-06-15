@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors(
     {
-        origin:"*",
+        origin:"https://expense-front-end.vercel.app/",
         methods:["GET","POST","PUT","DELETE"],
         credentials:true,
     }
