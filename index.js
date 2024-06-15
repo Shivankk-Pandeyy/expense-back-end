@@ -12,27 +12,13 @@ const product_routes=require("./Routes/Product");
 //MIDDLEWARE
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "http://localhost:5173"); // Specify your client domain
-    res.header("Access-Control-Allow-Credentials", "true");
-    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
-
-app.options('*', (req, res) => {
-    res.header("Access-Control-Allow-Origin", "http://localhost:5173");
-    res.header("Access-Control-Allow-Credentials", "true");
-    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.sendStatus(200);
-});
-app.use(cors({
-    origin: ['http://localhost:5173'],
-    methods: ['GET','POST','PUT','DELETE'], // Allow only these methods
-    allowedHeaders: ["Origin, X-Requested-With, Content-Type, Accept"] ,
-    credentials:true,
-}));
+app.use(cors(
+    {
+        origin:"*",
+        methods:["GET","POST","PUT","DELETE"],
+        credentials:true,
+    }
+));
 //MIDDLEWARE FOR ROUTER
 app.use("/api/expense",product_routes)
 //SERVER
