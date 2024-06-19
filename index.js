@@ -12,17 +12,11 @@ const product_routes=require("./Routes/Product");
 //MIDDLEWARE
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://expense-front-end.vercel.app/");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  next();
-})
 app.use(cors(
     {
-        origin:"https://expense-front-end.vercel.app",
-        methods:["GET","POST"],
-        credentials:true,
+        origin:["https://expense-front-end.vercel.app"],
+        methods:["POST","GET"],
+        credentials:true
     }
 ));
 //MIDDLEWARE FOR ROUTER
